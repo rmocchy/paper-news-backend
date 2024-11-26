@@ -1,0 +1,11 @@
+services:
+  lambda-docker:
+    build:
+      context: .
+      dockerfile: ./docker/lambda/Dockerfile
+    ports:
+      - 8080:8080
+    volumes:
+      - ./build:/app
+    environment:
+      - PORT=8080

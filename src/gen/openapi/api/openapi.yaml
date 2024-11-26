@@ -1,0 +1,188 @@
+openapi: 3.0.0
+info:
+  title: Paper-News-API
+  version: 1.0.0
+servers:
+- url: /
+tags:
+- description: Paper Operation
+  name: Papers
+paths:
+  /papers:
+    get:
+      operationId: listPapers
+      parameters:
+      - description: The page number.
+        explode: true
+        in: query
+        name: page
+        required: false
+        schema:
+          default: 1
+          format: int32
+          minimum: 1
+          type: integer
+        style: form
+      - description: The number of papers per page.
+        explode: true
+        in: query
+        name: pageSize
+        required: false
+        schema:
+          default: 10
+          format: int32
+          maximum: 50
+          minimum: 1
+          type: integer
+        style: form
+      - description: The title of the paper.
+        explode: true
+        in: query
+        name: title
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: The authors of the paper.
+        explode: true
+        in: query
+        name: authors
+        required: false
+        schema:
+          items:
+            type: string
+          type: array
+        style: form
+      - description: The tags of the paper
+        explode: true
+        in: query
+        name: tags
+        required: false
+        schema:
+          items:
+            type: string
+          type: array
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/listPapers_200_response'
+          description: A list of papers
+      summary: List Papers With Pagination
+      tags:
+      - Papers
+components:
+  schemas:
+    listPapers_200_response_papers_inner:
+      example:
+        publishedAt: 2000-01-23T04:56:07.000+00:00
+        abstract: abstract
+        title: title
+        url: https://openapi-generator.tech
+        authors:
+        - authors
+        - authors
+        tags:
+        - tags
+        - tags
+      properties:
+        title:
+          description: The title of the paper.
+          type: string
+        authors:
+          description: The authors of the paper.
+          items:
+            type: string
+          type: array
+        abstract:
+          description: The abstract of the paper.
+          type: string
+        tags:
+          description: The tags of the paper.
+          items:
+            type: string
+          type: array
+        url:
+          description: The URL of the paper.
+          format: uri
+          type: string
+        publishedAt:
+          description: The date the paper was published.
+          format: date-time
+          type: string
+      required:
+      - abstract
+      - authors
+      - publishedAt
+      - title
+      - url
+      type: object
+    listPapers_200_response:
+      example:
+        total: 0
+        papers:
+        - publishedAt: 2000-01-23T04:56:07.000+00:00
+          abstract: abstract
+          title: title
+          url: https://openapi-generator.tech
+          authors:
+          - authors
+          - authors
+          tags:
+          - tags
+          - tags
+        - publishedAt: 2000-01-23T04:56:07.000+00:00
+          abstract: abstract
+          title: title
+          url: https://openapi-generator.tech
+          authors:
+          - authors
+          - authors
+          tags:
+          - tags
+          - tags
+        - publishedAt: 2000-01-23T04:56:07.000+00:00
+          abstract: abstract
+          title: title
+          url: https://openapi-generator.tech
+          authors:
+          - authors
+          - authors
+          tags:
+          - tags
+          - tags
+        - publishedAt: 2000-01-23T04:56:07.000+00:00
+          abstract: abstract
+          title: title
+          url: https://openapi-generator.tech
+          authors:
+          - authors
+          - authors
+          tags:
+          - tags
+          - tags
+        - publishedAt: 2000-01-23T04:56:07.000+00:00
+          abstract: abstract
+          title: title
+          url: https://openapi-generator.tech
+          authors:
+          - authors
+          - authors
+          tags:
+          - tags
+          - tags
+      properties:
+        papers:
+          items:
+            $ref: '#/components/schemas/listPapers_200_response_papers_inner'
+          maxItems: 50
+          type: array
+        total:
+          description: The total number of papers.
+          type: integer
+      required:
+      - papers
+      - total
+      type: object

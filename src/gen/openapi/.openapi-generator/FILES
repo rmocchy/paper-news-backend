@@ -1,0 +1,17 @@
+.gitignore
+.travis.yml
+README.md
+api/openapi.yaml
+api_papers.go
+client.go
+configuration.go
+docs/ListPapers200Response.md
+docs/ListPapers200ResponsePapersInner.md
+docs/PapersAPI.md
+git_push.sh
+go.mod
+go.sum
+model_list_papers_200_response.go
+model_list_papers_200_response_papers_inner.go
+response.go
+utils.go

@@ -15,4 +15,4 @@ openapi-gen:
 	docker run --rm -v ${PWD}:/local openapitools/openapi-generator-cli generate \
 		-i /local/openapi/combined.yaml \
 		-g go \
-		-o /local/gen
+		-o /local/src/gen/openapi 

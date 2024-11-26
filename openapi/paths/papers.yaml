@@ -1,0 +1,15 @@
+papers:
+  get:
+    summary: List Papers With Pagination
+    operationId: listPapers
+    tags:
+      - Papers
+    parameters:
+      $ref: "../payloads/papers.yaml#/listPapersRequestParams"
+    responses:
+      '200':
+        description: A list of papers
+        content:
+          application/json:
+            schema:
+              $ref: "../payloads/papers.yaml#/listPapersResponse"

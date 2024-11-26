@@ -1,0 +1,33 @@
+listPapersResponse:
+  papers:
+    - title: "The Title"
+      authors:
+        - "Author 1"
+        - "Author 2"
+      abstract: "The Abstract"
+      tags:
+        - "Tag 1"
+        - "Tag 2"
+      url: "http://example.com"
+      publishedAt: "2021-01-01T00:00:00Z"
+    - title: "The Title"
+      authors:
+        - "Author 1"
+        - "Author 2"
+      abstract: "The Abstract"
+      tags:
+        - "Tag 1"
+        - "Tag 2"
+      url: "http://example.com"
+      publishedAt: "2021-01-01T00:00:00Z"
+    - title: "The Title"
+      authors:
+        - "Author 1"
+        - "Author 2"
+      abstract: "The Abstract"
+      tags:
+        - "Tag 1"
+        - "Tag 2"
+      url: "http://example.com"
+      publishedAt: "2021-01-01T00:00:00Z"
+  total: 3

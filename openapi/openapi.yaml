@@ -1,0 +1,10 @@
+openapi: 3.0.0
+info:
+  title: Paper-News-API
+  version: "1.0.0"
+tags:
+  - name: Papers
+    description: Paper Operation
+paths:
+  /papers:
+    $ref: "./paths/papers.yaml#/papers"

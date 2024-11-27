@@ -1,0 +1,43 @@
+healthCheck:
+  get:
+    tags:
+      - HealthCheck
+    summary: Health Check
+    description: Check the health of the API
+    parameters:
+      - name: timestamp
+        description: The current timestamp
+        in: query
+        required: false
+        schema:
+          type: string
+          format: date-time
+    responses:
+      '200':
+        description: OK
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                status:
+                  type: string
+                  example: "OK"
+                send_timestamp:
+                  type: string
+                  format: date-time
+                  example: "2021-01-01T00:00:00Z"
+                responses_timestamp:
+                  type: string
+                  format: date-time
+                  example: "2021-01-01T00:00:00Z"
+      '500':
+        description: Internal Server Error
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                status:
+                  type: string
+                  example: "Internal Server Error"

@@ -1,5 +1,4 @@
 package: openapi
 generate:
-  client: true
   models: true
   embedded-spec: true

@@ -1,0 +1,33 @@
+debug:
+  get:
+    tags:
+      - Debug
+    summary: Debug Operation(just for test)
+    description: Debug Operation(just for test)
+    parameters:
+      $ref: "../payloads/debug.yaml#/getDebugParams"
+    responses:
+      '200':
+        description: Debug Operation(just for test)
+        content:
+          application/json:
+            schema:
+              $ref: "../payloads/debug.yaml#/getDebugResponse"
+  post:
+    tags:
+      - Debug
+    summary: Debug Operation(just for test)
+    description: Debug Operation(just for test)
+    requestBody:
+      required: true
+      content:
+        application/json:
+          schema:
+            $ref: "../payloads/debug.yaml#/postDebugRequest"
+    responses:
+      '200':
+        description: Debug Operation(just for test)
+        content:
+          application/json:
+            schema:
+              $ref: "../payloads/debug.yaml#/postDebugResponse"

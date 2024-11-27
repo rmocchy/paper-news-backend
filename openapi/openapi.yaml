@@ -3,8 +3,20 @@ info:
   title: Paper-News-API
   version: "1.0.0"
 tags:
+  - name: HealthCheck
+    description: Health Check
+  - name: Debug
+    description: Debug Operation(just for test)
   - name: Papers
     description: Paper Operation
+  - name: Greetings
+    description: Greeting Operation(just for test)
 paths:
+  /health:
+    $ref: "./paths/health_check.yaml#/healthCheck"
+  /debug:
+    $ref: "./paths/debug.yaml#/debug"
   /papers:
     $ref: "./paths/papers.yaml#/papers"
+  /greetings:
+    $ref: "./paths/greetings.yaml#/greetings"

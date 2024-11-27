@@ -1,0 +1,20 @@
+greetings:
+  get:
+    tags:
+      - Greetings
+    summary: Greeting Operation(just for test)
+    description: Greeting Operation(just for test)
+    responses:
+      '200':
+        description: Greeting Operation(just for test)
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                message:
+                  type: string
+                  example: Hello, World!
+                timestamp:
+                  type: string
+                  format: date-time

@@ -4,8 +4,7 @@ install-tools:
 
 .PHONY: build
 build:
-	cd src && \
-	GOOS=linux GOARCH=amd64 CGO_ENABLED=0 go build -o ../build/main
+	GOOS=linux GOARCH=amd64 CGO_ENABLED=0 go build -o ../build/main src/main.go
 
 .PHONY: start
 start:
@@ -30,3 +29,8 @@ oapi-codegen:
 	docker image build -t swagger-cli config/swagger-cli && \
 	docker run --rm -v $(PWD)/openapi:/app swagger-cli:latest bundle -o /app/combined.yaml /app/openapi.yaml && \
 	oapi-codegen -config config/oapi-codegen/config.yaml -o gen/openapi/openapi.gen.go openapi/combined.yaml
+
+.PHONY: wire
+wire:
+	cd src && \
+	wire gen

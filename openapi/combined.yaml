@@ -6,11 +6,298 @@
   },
   "tags": [
     {
+      "name": "HealthCheck",
+      "description": "Health Check"
+    },
+    {
+      "name": "Debug",
+      "description": "Debug Operation(just for test)"
+    },
+    {
       "name": "Papers",
       "description": "Paper Operation"
+    },
+    {
+      "name": "Greetings",
+      "description": "Greeting Operation(just for test)"
     }
   ],
   "paths": {
+    "/health": {
+      "get": {
+        "tags": [
+          "HealthCheck"
+        ],
+        "summary": "Health Check",
+        "description": "Check the health of the API",
+        "parameters": [
+          {
+            "name": "timestamp",
+            "description": "The current timestamp",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "example": "OK"
+                    },
+                    "send_timestamp": {
+                      "type": "string",
+                      "format": "date-time",
+                      "example": "2021-01-01T00:00:00Z"
+                    },
+                    "responses_timestamp": {
+                      "type": "string",
+                      "format": "date-time",
+                      "example": "2021-01-01T00:00:00Z"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "example": "Internal Server Error"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/debug": {
+      "get": {
+        "tags": [
+          "Debug"
+        ],
+        "summary": "Debug Operation(just for test)",
+        "description": "Debug Operation(just for test)",
+        "parameters": [
+          {
+            "name": "param1",
+            "in": "query",
+            "description": "Debug request parameters",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "description": "param1"
+            }
+          },
+          {
+            "name": "param2",
+            "in": "query",
+            "description": "Debug request parameters",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "description": "param2"
+            }
+          },
+          {
+            "name": "param3",
+            "in": "query",
+            "description": "Debug request parameters",
+            "required": false,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "description": "param3"
+            }
+          },
+          {
+            "name": "param4",
+            "in": "query",
+            "description": "Debug request parameters",
+            "required": false,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "key1": {
+                  "type": "string"
+                },
+                "key2": {
+                  "type": "integer"
+                },
+                "key3": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Debug Operation(just for test)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "param1": {
+                      "type": "string",
+                      "description": "param1"
+                    },
+                    "param2": {
+                      "type": "integer",
+                      "description": "param2"
+                    },
+                    "param3": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      },
+                      "description": "param3"
+                    },
+                    "param4": {
+                      "type": "object",
+                      "properties": {
+                        "key1": {
+                          "type": "string"
+                        },
+                        "key2": {
+                          "type": "integer"
+                        },
+                        "key3": {
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Debug"
+        ],
+        "summary": "Debug Operation(just for test)",
+        "description": "Debug Operation(just for test)",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "param1": {
+                    "type": "string",
+                    "description": "param1"
+                  },
+                  "param2": {
+                    "type": "integer",
+                    "description": "param2"
+                  },
+                  "param3": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    },
+                    "description": "param3"
+                  },
+                  "param4": {
+                    "type": "object",
+                    "properties": {
+                      "key1": {
+                        "type": "string"
+                      },
+                      "key2": {
+                        "type": "integer"
+                      },
+                      "key3": {
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Debug Operation(just for test)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "param1": {
+                      "type": "string",
+                      "description": "param1"
+                    },
+                    "param2": {
+                      "type": "integer",
+                      "description": "param2"
+                    },
+                    "param3": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      },
+                      "description": "param3"
+                    },
+                    "param4": {
+                      "type": "object",
+                      "properties": {
+                        "key1": {
+                          "type": "string"
+                        },
+                        "key2": {
+                          "type": "integer"
+                        },
+                        "key3": {
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/papers": {
       "get": {
         "summary": "List Papers With Pagination",
@@ -143,6 +430,37 @@
                     "papers",
                     "total"
                   ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/greetings": {
+      "get": {
+        "tags": [
+          "Greetings"
+        ],
+        "summary": "Greeting Operation(just for test)",
+        "description": "Greeting Operation(just for test)",
+        "responses": {
+          "200": {
+            "description": "Greeting Operation(just for test)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "Hello, World!"
+                    },
+                    "timestamp": {
+                      "type": "string",
+                      "format": "date-time"
+                    }
+                  }
                 }
               }
             }

@@ -2,7 +2,7 @@ services:
   lambda-docker:
     build:
       context: .
-      dockerfile: ./docker/lambda/Dockerfile
+      dockerfile: ./config/lambda/Dockerfile
     ports:
       - 8080:8080
     volumes:
